@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,12 +53,14 @@ namespace pryAbrhamRepaso
             {
                 case "Grupo A":
                     lstResultado.Items.Clear();
-                    //lstResultado.Items.Add("Cpu");
-                    //lstResultado.Items.Add("Micro");
-                    //lstResultado.Items.Add("Placa");
-                    //lstResultado.Items.Add("Memoria");
+                    lstResultado.Items.Add("Cpu");
+                    lstResultado.Items.Add("Micro");
+                    lstResultado.Items.Add("Placa");
+                    lstResultado.Items.Add("Memoria");
 
                     //recorrer el vector de inicio a fin y mostrar el contenido
+
+                    lstResultado.Items.Clear();
                     for (int indice = 0; indice < VectorGrupoA.Length; indice++)
                     {
                         lstResultado.Items.Add(VectorGrupoA[indice]);
@@ -66,18 +69,69 @@ namespace pryAbrhamRepaso
                     break;
                 case "Grupo B":
                     lstResultado.Items.Clear();
-                    //lstResultado.Items.Add("Visual");
-                    //lstResultado.Items.Add("C#");
-                    //lstResultado.Items.Add("Desktop");
+                    lstResultado.Items.Add("Visual");
+                    lstResultado.Items.Add("C#");
+                    lstResultado.Items.Add("Desktop");
+
+                    lstResultado.Items.Clear();
+                    for (int indice = 0; indice < VectorGrupoB.Length; indice++)
+                    {
+                        lstResultado.Items.Add(VectorGrupoB[indice]);
+                    }
                     break;
+
 
                 case "Grupo C":
                     lstResultado.Items.Clear();
-                    //lstResultado.Items.Add("Server");
-                    //lstResultado.Items.Add("Aws");
-                    //lstResultado.Items.Add("Cloud");
+                    lstResultado.Items.Add("Server");
+                    lstResultado.Items.Add("Aws");
+                    lstResultado.Items.Add("Cloud");
+
+                    lstResultado.Items.Clear();
+                    for (int indice = 0; indice < VectorGrupoC.Length; indice++)
+                    {
+                        lstResultado.Items.Add(VectorGrupoC[indice]);
+                    }
                     break;
+
             }
+        }
+
+        private void lblGrupo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int indicegrabar = 0;
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            switch (cmbGrupo.Text)
+            {
+                case "Grupo A":
+            VectorGrupoA[indicegrabar] = txtDato.Text;
+                indicegrabar++;
+                lblMensaje.Text = "Almacenamiento.. " + txtDato.Text;
+                txtDato.Text = "";
+                break;
+
+                default:
+                break;
+
+            case "Grupo B":
+                VectorGrupoB[indicegrabar] = txtDato.Text;
+                indicegrabar++;
+                lblMensaje.Text = "Almacenamiento.. " + txtDato.Text;
+                txtDato.Text = "";
+                break;
+
+            case "Grupo C":
+                VectorGrupoC[indicegrabar] = txtDato.Text;
+                indicegrabar++;
+                lblMensaje.Text = "Almacenamiento.. " + txtDato.Text;
+                txtDato.Text = "";
+                break;
+            }
+            
         }
     }
 }
